@@ -3,5 +3,5 @@ from django.db import models
 # Create your models here.
 
 class InputFile(models.Model):
-    file_name = models.CharField(max)
+    file_name = models.CharField(max_length= 30)
     
