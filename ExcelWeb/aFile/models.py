@@ -15,7 +15,7 @@ class aFile(models.Model):
     input_time = models.DateTimeField(auto_now_add= True) #update once on creation only
     is_deleted = models.BooleanField(default= False)
     created_by = models.ForeignKey(User, on_delete= models.DO_NOTHING) #Do nothing - Consistency must be handled elsewhere
-    last_updated_time = modesl.DateTimeField(auto_now = True) #update each time when calling models.save()
+    last_updated_time = models.DateTimeField(auto_now = True) #update each time when calling models.save()
     # file_col = models
     @classmethod
     def get_file_type(cls):
