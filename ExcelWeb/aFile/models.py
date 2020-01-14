@@ -11,8 +11,7 @@ from django.contrib.auth.models import User
 
 class aFile(models.Model):
     file_name = models.CharField(max_length=50)
-    namelist = file_name.split(',')
-    file_type = namelist[len(namelist)-1]
+    file_type = models.CharField(max_length=6)
     input_time = models.DateTimeField(auto_now_add= True) #update once on creation only
     is_deleted = models.BooleanField(default= False)
     created_by = models.ForeignKey(User, on_delete= models.DO_NOTHING) #Do nothing - Consistency must be handled elsewhere
