@@ -17,7 +17,9 @@ class aFile(models.Model):
     created_by = models.ForeignKey(User, on_delete= models.DO_NOTHING) #Do nothing - Consistency must be handled elsewhere
     last_updated_time = models.DateTimeField(auto_now = True) #update each time when calling models.save()
     # file_col = models
+    def __str__(self):
+        return "<File: %s>" % self.file_name
     @classmethod
     def get_file_type(cls):
-        pass
+        pass 
 
