@@ -11,7 +11,8 @@
         <h3> {{ aFile.file_name }} </h3>
         <h4> {{ aFile.file_type }} </h4>
         <h5> {{ aFile.input_time }} </h5>
-        <h6> {{ aFile.created_by }} </h6>
+        <h6> created by: {{ aFile.created_by }} </h6>
+    {% empty %}
     {% endfor %}
     {% comment %} files is from the name you made in views.py  {% endcomment %}
 

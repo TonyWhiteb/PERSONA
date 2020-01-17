@@ -5,6 +5,7 @@ from .models import aFile
 def file_list(request):
     context = {}
     context['files'] = aFile.objects.all()
+    context['file_total'] = aFile.objects.all().count()
     return render(request, 'file_list.html', context= context)
 
 def file_upload(request, file_pk):
