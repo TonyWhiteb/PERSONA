@@ -4,7 +4,7 @@ from .models import aFile
 
 def file_list(request):
     context = {}
-    context['file'] = aFile.objects.all()
+    context['files'] = aFile.objects.all()
     return render(request, 'file_list.html', context= context)
 
 def file_upload(request, file_pk):

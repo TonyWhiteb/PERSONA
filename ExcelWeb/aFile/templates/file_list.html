@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>File List Sample</title>
+</head>
+<body>
+    {% for aFile in files%} 
+        <h3> {{ aFile.file_name }} </h3>
+        <h4> {{ aFile.file_type }} </h4>
+        <h5> {{ aFile.input_time }} </h5>
+        <h6> {{ aFile.created_by }} </h6>
+    {% endfor %}
+    {% comment %} files is from the name you made in views.py  {% endcomment %}
+
+</body>
+</html>
