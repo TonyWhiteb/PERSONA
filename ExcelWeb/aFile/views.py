@@ -8,7 +8,8 @@ def file_list(request):
     context['file_total'] = aFile.objects.all().count()
     return render(request, 'file_list.html', context= context)
 
-def file_upload(request, file_pk):
+def file_type_page(request, file_pk):
     context  = {}
-    context['file'] = get_object_or_404(aFile, pk= file_pk)
-    return render(request, 'file_upload.html', context= context)
+    file_type = get_object_or_404(aFile, pk = file_pk)
+    context['file'] = aFile.objects.filter()
+    return render(request, 'file_type_page.html', context= context)
