@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django import forms
+from django.forms import ModelForm
 from django.utils.translation import gettext_lazy as _
 # Create your models here.
 
@@ -16,16 +17,26 @@ from django.utils.translation import gettext_lazy as _
 #         choices=TypeName.choices,
 #         default=TypeName.EXCEL
 #     )    
-class FileFieldForm(forms.Form):
-    title = forms.CharField(max_length=50)
-    file_field = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple':True}))
-    upload_by = models.ForeignKey(User, on_delete=models.DO_NOTHING)
-    create_time = models.DateField(auto_now_add=True)
-    last_update = models.DateTimeField(auto_now=True)
+# class FileFieldForm(forms.Form):
+#     title = forms.CharField(max_length=50)
+#     file_field = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple':True}))
+#     upload_by = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+#     create_time = models.DateField(auto_now_add=True)
+#     last_update = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return '<File: %s>' % self.title
+        
+#     def __str__(self):
+#         return '<File: %s>' % self.title
+class FileFieldForm(models.Model):
+    title = models.CharField(max_length=50)
+    file_field = models.FileField()
 
+
+
+class FileForm(ModelForm):
+    class Meta:
+        model = FileFieldForm
+        fields = ['title','upload_by','create_time','last_update']
 # class InputFile(models.Model):
 
 #     class TypeName(models.TextChoices):
