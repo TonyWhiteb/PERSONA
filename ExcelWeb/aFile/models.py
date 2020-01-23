@@ -27,16 +27,26 @@ from django.utils.translation import gettext_lazy as _
         
 #     def __str__(self):
 #         return '<File: %s>' % self.title
+def user_directory_path(instance, filename):
+    return 'user_{0}/{1}'.format(instance.user.id, filename)
+
 class FileFieldForm(models.Model):
     title = models.CharField(max_length=50)
-    file_field = models.FileField()
+    file_field = models.FileField(upload_to=user_directory_path)
+    upload_by = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+    created_time = models.DateField(auto_now_add=True)
+    last_update = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return 'File:%s' % self.title
+    
 
 
 
-class FileForm(ModelForm):
-    class Meta:
-        model = FileFieldForm
-        fields = ['title','upload_by','create_time','last_update']
+# class FileForm(ModelForm):
+#     class Meta:
+#         model = FileFieldForm
+#         fields = ['title','upload_by','create_time','last_update']
 # class InputFile(models.Model):
 
 #     class TypeName(models.TextChoices):

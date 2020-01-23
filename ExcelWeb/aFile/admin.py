@@ -5,4 +5,4 @@ from .models import FileFieldForm
 
 @admin.register(FileFieldForm)
 class FileFieldFormAdmin(admin.ModelAdmin):
-    list_display = ['title', 'upload_by', 'create_time', 'last_update']
+    list_display = ['title', 'upload_by', 'created_time', 'last_update']
