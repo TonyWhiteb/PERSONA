@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <ul>
+        <li>
+            <a href="{% url 'simple_upload' %}">Simple Upload</a>
+        </li>
+    </ul>
+    <p>Uploaded Files: </p>
+    <ul>
+        {% for obj in aFile %}
+            <li>
+                <a href="{{ obj.aFile.url }}">{{ obj.aFile.name }}</a>
+                <small></small>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}
