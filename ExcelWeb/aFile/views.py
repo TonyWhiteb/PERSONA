@@ -3,9 +3,9 @@ from django.shortcuts import render
 from .models import FileFieldForm
 from django.core.files.storage import FileSystemStorage
 # Create your views here.
-def home(request):
+def upload_home(request):
     aFile = FileFieldForm.objects.all()
-    return render(request, 'home.html', {'aFile': aFile})
+    return render(request, 'upload.html', {'aFile': aFile})
 
 
 def simple_upload(request):

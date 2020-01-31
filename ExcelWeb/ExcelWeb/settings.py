@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'aFile',
+    'accounts',
     # 'south',
 ]
 
@@ -56,7 +57,7 @@ ROOT_URLCONF = 'ExcelWeb.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -127,3 +128,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'temp_media')
 
 #TODO: MEDIA_ROOT = '/temp_media/'
 
+LOGIN_REDIRECT_URL='home'
+LOGOUT_REDIRECT_URL='home'
