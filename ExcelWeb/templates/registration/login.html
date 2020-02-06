@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Login</h1>
-    <form method="post">
-        {% csrf_token %}
-         {{ form.as_p }} {% comment %} form's content is outputted as paragraph {% endcomment %}
-        <button type="submit">Login</button>
-    </form>
+    <section class="Login" id="login">
+        <h1>Login</h1>
+        <form action="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+        </form>
+
+    </section>
+
 
 {% endblock %}

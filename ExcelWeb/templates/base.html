@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -5,19 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 
-    <title>{% block title %}Simple File Upload{% endblock %}</title>
+    
   </head>
   <body>
+
     {% block content %}
     {% endblock %}
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/jquery.slim.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+
+    <script src= {% static 'js/jquery.slim.min.js' %}></script>
+    <script src={% static "js/popper.min.js" %}></script>
+    <script src={% static "js/bootstrap.min.js" %}></script>
   </body>
 </html>
 
