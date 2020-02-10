@@ -7,24 +7,26 @@
 <section>
     <title>Home</title>
 </section>
-
 <div class="container" >
-
+    <div>
+        <section>
+            <img src="{% static 'img/BackgroundImg.png' %}" class="img-fluid" alt="BackgroundImg"  >
+        </section>
+    </div>
     <div class="row" style="background: lightgray">
         <section class="col-4 offset-4" id="LoginWid">
-            <img src="{% static 'img/BackgroundImg.png' %}" class="rounded mx-auto d-block" alt="Author" width="150"
-                    height="150">
+
             {% if user.is_authenticated %}
                 Hi {{ user.username }}
                 <p><a href="{% url 'logout' %}">Logout</a></p>
             {% else %}
                 <p>You are not logged in!</p>
-                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'login' %}" class="btn btn-primary" role="button">Login</a>
             {% endif %}
         </section>
-        <section class="col-4" id="blank" style="background:burlywood">
+        <!-- <section class="col-4" id="blank" style="background:burlywood">
                 <p>TEST!</p>
-        </section>
+        </section> -->
     </div>
 
 </div>
