@@ -1,7 +1,7 @@
 from django import forms
-from .models import FileFieldForm
+from .models import Document
 
-class aFileFieldForm(forms.ModelForm):
+class DocumentForm(forms.ModelForm):
     class Meta:
-        model = FileFieldForm
-        fields = ('upload_by', 'fiel_field')
+        model = Document
+        fields = ('title','upload_by')

@@ -46,7 +46,29 @@
             <input name="file" type="file" multiple />
         </div>
     </form>
+    <button type="submit" id="submit_all">Submit</button>
 </div>
 <script src="{% static 'js/dropzone.js' %}"></script>
+<script type="text/javascript">
+    Dropzone.options.myDropzone= {
+
+        autoProcessQueue: false,
+        
+        init: function() {
+            var submitButton = document.querySelector("#submit_all")
+            myDropzone = this;
+
+            submitButton.addEventListener("click", function(){
+                myDropzone.processQueue();
+            });
+
+            this.on("addedfile", function(){
+
+            });
+        }
+
+    };
+
+</script>
 {% endblock  %}
 

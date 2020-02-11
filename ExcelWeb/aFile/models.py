@@ -27,20 +27,33 @@ from django.utils.translation import gettext_lazy as _
         
 #     def __str__(self):
 #         return '<File: %s>' % self.title
-def user_directory_path(instance, filename):
+
+
+# def user_directory_path(instance, filename):
+#     return 'user_{0}/{1}'.format(instance.user.id, filename)
+
+# class FileFieldForm(models.Model):
+#     title = models.CharField(max_length=50)
+#     file_field = models.FileField(upload_to=user_directory_path)
+#     upload_by = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+#     created_time = models.DateField(auto_now_add=True)
+#     last_update = models.DateTimeField(auto_now=True)
+
+#     def __str__(self):
+#         return 'File:%s' % self.title
+    
+def user_directory_path( filename,instance):
     return 'user_{0}/{1}'.format(instance.user.id, filename)
 
-class FileFieldForm(models.Model):
-    title = models.CharField(max_length=50)
-    file_field = models.FileField(upload_to=user_directory_path)
+class Document(models.Model):
+    title = models.CharField(max_length=42)
     upload_by = models.ForeignKey(User, on_delete=models.DO_NOTHING)
-    created_time = models.DateField(auto_now_add=True)
-    last_update = models.DateTimeField(auto_now=True)
+    datestamp = models.DateTimeField(auto_now_add=True)
+    document = models.FileField(upload_to=user_directory_path)
 
-    def __str__(self):
-        return 'File:%s' % self.title
-    
-
+# class MainModel(models.Model):
+#     title = models.CharField(max_length=42)
+#     document = models.ForeignKey(Document, on_delete=models.DO_NOTHING)
 
 
 # class FileForm(ModelForm):
