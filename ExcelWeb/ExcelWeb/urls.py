@@ -20,7 +20,7 @@ from django.views.generic.base import TemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
-    path('account/', include('accounts.urls')), #Django will look top to bottom for url patterns 
+    path('account/', include('accounts.urls'), name="account"), #Django will look top to bottom for url patterns 
     path('account/', include('django.contrib.auth.urls')),
 
     # path('upload/', include('aFile.urls')),
