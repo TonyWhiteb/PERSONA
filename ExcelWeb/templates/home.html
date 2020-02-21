@@ -2,7 +2,6 @@
 
 {% load static %}
 
-<link href="{% static 'css/dropzone.css' %}" type="text/css" rel="stylesheet"/>
 
 {% block content %}
 <section>
@@ -11,42 +10,25 @@
 <div class="container" >
     <div>
         <section>
-
             <img src="{% static 'img/BackgroundImg.png' %}" class="img-fluid" alt="BackgroundImg"  >
         </section>
     </div>
     <div class="row" style="background: lightgray">
         <section class="col-4 offset-4" id="LoginWid">
-            <p>You are not logged in!</p>
-            <div class="row" style="background:blanchedalmond;">
-                {% if user.is_authenticated %}
-                    <section class="col-4 ">
-                        Hi {{ user.username }}
-                        <p><a href="{% url 'logout' %}">Logout</a></p>
-                    </section>      
-                {% else %}
-                    <section class="col-4 offset-4">
-                        
 
-                        <a href="{% url 'login' %}" class="btn btn-primary" role="button">Login</a>
-                    </section>
-
-
-                {% endif %}
-            </div><!-- nested row -->
-
+            {% if user.is_authenticated %}
+                Hi {{ user.username }}
+                <p><a href="{% url 'logout' %}">Logout</a></p>
+            {% else %}
+                <p>You are not logged in!</p>
+                <a href="{% url 'login' %}" class="btn btn-primary" role="button">Login</a>
+            {% endif %}
         </section>
         <!-- <section class="col-4" id="blank" style="background:burlywood">
                 <p>TEST!</p>
         </section> -->
-    </div><!--  row -->
-    <form class="dropzone" action="{% url 'home' %}" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="fallback">
-            <input name="file" type="file" multiple />
-        </div>
-    </form>
+    </div>
+
 </div>
-<script src="{% static 'js/dropzone.js' %}"></script>
 {% endblock  %}
 
