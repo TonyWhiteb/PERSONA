@@ -1,0 +1,43 @@
+{% load static %}
+
+<!-- <img src="{% static 'img/BackgroundImg.png' %}" alt="test"> -->
+<!-- <ul class="nav nav-tabs" id="navigation">
+    <li class="active">test1
+    </li> -->
+    <!-- <li class="active">
+        <a href="{% url 'home' %}">home</a>
+    </li>
+    <li {% if '/doc/' in request.path %} class="active"{% endif %}>
+        <a href="{% url 'test' %}">test</a>
+    </li> -->
+<!-- </ul -->
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExample09">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Upload</a>
+          </li>
+
+        </ul>
+        <div class="dropdown show my-2 my-md-0">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown link
+            </a>
+          
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+        </div>
+      </div>
+</nav>
